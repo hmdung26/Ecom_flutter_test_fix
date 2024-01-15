@@ -6,7 +6,7 @@ import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  ProductDetailPage({Key key}) : super(key: key);
+  ProductDetailPage({Key? key}) : super(key: key);
 
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
@@ -14,21 +14,21 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage>
     with TickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> animation;
+  AnimationController? controller;
+  Animation<double>? animation;
   @override
   void initState() {
     super.initState();
     controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     animation = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(parent: controller, curve: Curves.easeInToLinear));
-    controller.forward();
+        CurvedAnimation(parent: controller!, curve: Curves.easeInToLinear));
+    controller?.forward();
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    controller!.dispose();
     super.dispose();
   }
 
@@ -69,7 +69,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     double size = 20,
     double padding = 10,
     bool isOutLine = false,
-    Function onPressed,
+    Function? onPressed,
   }) {
     return Container(
       height: 40,
@@ -104,11 +104,11 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       builder: (context, child) {
         return AnimatedOpacity(
           duration: Duration(milliseconds: 500),
-          opacity: animation.value,
+          opacity: animation!.value,
           child: child,
         );
       },
-      animation: animation,
+      animation: animation!,
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
@@ -138,10 +138,10 @@ class _ProductDetailPageState extends State<ProductDetailPage>
 
   Widget _thumbnail(String image) {
     return AnimatedBuilder(
-      animation: animation,
+      animation: animation!,
       //  builder: null,
       builder: (context, child) => AnimatedOpacity(
-        opacity: animation.value,
+        opacity: animation!.value,
         duration: Duration(milliseconds: 500),
         child: child,
       ),

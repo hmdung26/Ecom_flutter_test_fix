@@ -8,9 +8,9 @@ import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key, this.title}) : super(key: key);
+  MainPage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MainPageState createState() => _MainPageState();

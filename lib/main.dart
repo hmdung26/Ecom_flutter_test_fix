@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: Routes.getRoute(),
       onGenerateRoute: (RouteSettings settings) {
-        if (settings.name.contains('detail')) {
+        if (settings.name!.contains('detail')) {
           return CustomRoute<bool>(
               builder: (BuildContext context) => ProductDetailPage());
         } else {
